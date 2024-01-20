@@ -82,6 +82,23 @@ fn lorenz_system(
     }
 }
 
+/**
+Maps a number from an input range to an output range
+
+# Panics
+The function will panic if the type T passed does not implement
+Copy, std::ops::Add, std::ops::Sub, std::ops::Mul, std::ops::Div
+
+# Examples
+
+```rust
+let nums = vec![-1.,0.5, -0.4, -0.3, 0.8, 1, 0.2];
+for num in nums {
+    map_range((-1,1),(0,1), nums);
+}
+```
+*/
+
 fn map_range<T: Copy>(from_range: (T, T), to_range: (T, T), s: T) -> T
 where
     T: std::ops::Add<T, Output = T>
